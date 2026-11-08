@@ -3,7 +3,6 @@ from datetime import datetime
 
 LOG_FILE = "keylog.txt"
 
-# أسماء المفاتيح الخاصة بالعربي
 KEY_NAMES = [
     "space",
     "BackSpace",
@@ -34,13 +33,12 @@ def record_key(event):
     keysym = event.keysym
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-    # تحديد الاسم المعروض
     if keysym in KEY_NAMES:
         display = f"[{keysym}]"
     elif char and char.isprintable():
-        display = char  # حرف عادي أو عربي
+        display = char    
     else:
-        display = f"[{keysym}]"  # أي مفتاح آخر
+        display = f"[{keysym}]"  
 
     entry = f"[{timestamp}]  {display}"
 
@@ -50,7 +48,6 @@ def record_key(event):
     with open(LOG_FILE, "a", encoding="utf-8") as f:
         f.write(entry + "\n")
 
-# ── الواجهة ──────────────────────────────────────────
 window = tk.Tk()
 window.title("Key Logger - Educational Demo")
 window.geometry("520x480")

